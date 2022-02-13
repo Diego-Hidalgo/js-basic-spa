@@ -1,3 +1,62 @@
+let Navbar = {
+    render : async () => {
+        let view = /*html*/
+        `
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div id="navbarBasicExample" class="navbar-menu is-active" aria-expanded="false">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="/#/">
+                                <strong>Home</strong>
+                            </a>
+                            <a class="navbar-item" href="/#/about">
+                                <strong>About</strong>
+                            </a>
+                            <a class="navbar-item" href="/#/secret">
+                                <strong>Secret</strong>
+                            </a>
+                        </div>
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="buttons">
+                                    <a class="button is-primary" href="/#/register">
+                                        <strong>Sign up</strong>
+                                    </a>
+                                    <a id="log_btn" class="button is-light">
+                                        <strong>Log in<strong>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        `;
+        return view;
+    },
+    after_render : async () => {
+        let btn = document.getElementById('log_btn');
+        if(logged) {
+            btn.innerHTML = '<a id="log_btn" class="button is-light"><strong>Log out</strong></a>'
+        } else {
+            btn.innerHTML = '<a id="log_btn" class="button is-light" href="/#/login"><strong>Log in</strong></a>'
+        }
+        btn.addEventListener('click', () => {
+            if(logged) {
+                logged = false;
+                btn.innerHTML = '<a id="log_btn" class="button is-light" href="/#/login"><strong>Log in</strong></a>'
+            }
+        });
+    }
+};
+
 let Bottombar = {
     render : async () => {
         let view = /*html*/
