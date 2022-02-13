@@ -301,7 +301,7 @@ let Edit = {
                 <textarea class="textarea" id="content_area" rows="10" cols="177">${post.content}</textarea>
             </div>
             <div class="field">
-                <input class="input" id="name_input" type="text" placeholder="Name" value="${post.name}">
+                <input class="input" id="name_input" type="text" placeholder="Author" value="${post.name}">
             </div>
             <div class="field">
                 <p class="control">
