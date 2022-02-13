@@ -135,6 +135,44 @@ let About = {
     }
 };
 
+let getPost = async (id) => {
+    try {
+        return entries.find(x=> x.id === id);
+    } catch (err) {
+        console.log('Error getting documents', err)
+    };
+};
+
+let PostShow = {
+    render : async () => {
+        let request = Utils.parseRequestURL();
+        let post = await getPost(request.id);
+        return /*html*/`
+            <section class="section">
+                <h1> Post Id : ${post.id}</h1>
+                <p> Post Title : ${post.title} </p>
+                <p> Post Content : ${post.content} </p>
+                <p> Post Author : ${post.name} </p> <br><br>
+                <a id="edit_btn" class="button is-primary">
+                    <strong>Edit</strong>
+                </a><br><br>
+            </section>
+        `;
+    },
+    after_render : async () => {
+        let request = Utils.parseRequestURL();
+        let post = await getPost(request.id);
+        let btn = document.getElementById('edit_btn');
+        btn.addEventListener('click', () => {
+            if(!logged) {
+                alert('You must be logged in order to perform this action');
+            } else {
+
+            }
+        });
+    }
+};
+
 let Register = {
     render : async () => {
         return /*html*/ `
