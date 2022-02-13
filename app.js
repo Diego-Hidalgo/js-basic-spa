@@ -17,20 +17,20 @@ let Navbar = {
                     </div>
                     <div id="navbarBasicExample" class="navbar-menu is-active" aria-expanded="false">
                         <div class="navbar-start">
-                            <a class="navbar-item" href="/#/">
+                            <a class="navbar-item" href="#/">
                                 <strong>Home</strong>
                             </a>
-                            <a class="navbar-item" href="/#/about">
+                            <a class="navbar-item" href="#/about">
                                 <strong>About</strong>
                             </a>
-                            <a class="navbar-item" href="/#/secret">
+                            <a class="navbar-item" href="#/secret">
                                 <strong>Secret</strong>
                             </a>
                         </div>
                         <div class="navbar-end">
                             <div class="navbar-item">
                                 <div class="buttons">
-                                    <a class="button is-primary" href="/#/register">
+                                    <a class="button is-primary" href="#/register">
                                         <strong>Sign up</strong>
                                     </a>
                                     <a id="log_btn" class="button is-light">
@@ -50,13 +50,13 @@ let Navbar = {
         if(logged) {
             btn.innerHTML = '<a id="log_btn" class="button is-light"><strong>Log out</strong></a>'
         } else {
-            btn.innerHTML = '<a id="log_btn" class="button is-light" href="/#/login"><strong>Log in</strong></a>'
+            btn.innerHTML = '<a id="log_btn" class="button is-light" href="#/login"><strong>Log in</strong></a>'
         }
         btn.addEventListener('click', () => {
             if(logged) {
                 logged = false;
-                btn.innerHTML = '<a id="log_btn" class="button is-light" href="/#/login"><strong>Log in</strong></a>'
-                location.href = '/#/';
+                btn.innerHTML = '<a id="log_btn" class="button is-light" href="#/login"><strong>Log in</strong></a>'
+                location.href = '#/';
             }
         });
     }
@@ -172,7 +172,7 @@ let PostShow = {
             if(!logged) {
                 alert('You must be logged in order to perform this action');
             } else {
-                location.href = `/#/edit/${post.id}`;
+                location.href = `#/edit/${post.id}`;
             }
         });
     }
@@ -212,7 +212,7 @@ let Register = {
             <div class="field">
                 <p class="control">
                     <button class="button is-primary" id="register_submit_btn">
-                    Register
+                        Register
                     </button>
                 </p>
             </div>
@@ -263,7 +263,7 @@ let LogIn = {
         <div class="field">
             <p class="control">
                 <button class="button is-primary" id="login_submit_btn">
-                <strong>Log In</strong>
+                    <strong>Log In</strong>
                 </button>
             </p>
         </div>
@@ -282,7 +282,7 @@ let LogIn = {
                 let btn = document.getElementById('log_btn');
                 btn.innerHTML = '<a id="log_btn" class="button is-light"><strong>Log out</strong></a>'
                 alert(`User Successfully Logged`);
-                location.href = '/#/';
+                location.href = '#/';
             }
         });
     }
@@ -307,7 +307,7 @@ let Edit = {
             <div class="field">
                 <p class="control">
                     <button class="button is-primary" id="edit_submit_btn">
-                    Submit Changes
+                        Submit Changes
                     </button>
                 </p>
             </div>
