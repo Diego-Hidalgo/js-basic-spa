@@ -56,6 +56,7 @@ let Navbar = {
             if(logged) {
                 logged = false;
                 btn.innerHTML = '<a id="log_btn" class="button is-light" href="/#/login"><strong>Log in</strong></a>'
+                location.href = '/#/';
             }
         });
     }
@@ -171,7 +172,7 @@ let PostShow = {
             if(!logged) {
                 alert('You must be logged in order to perform this action');
             } else {
-                location.href = `/#/edit/` + post.id;
+                location.href = `/#/edit/${post.id}`;
             }
         });
     }
