@@ -96,7 +96,7 @@ let Error404 = {
 
 let getPostsList = async () => {
     try {
-        return null;
+        return entries;
     } catch (err) {
         console.log('Error getting documents', err)
     };
