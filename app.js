@@ -90,6 +90,39 @@ let Error404 = {
     }
 };
 
+let getPostsList = async () => {
+    try {
+        return null;
+    } catch (err) {
+        console.log('Error getting documents', err)
+    };
+ };
+ 
+ let Home = {
+     render : async () => {
+         let posts = await getPostsList();
+         let view =  /*html*/
+            `
+             <section class="section">
+                 <h1> Home </h1>
+                 <ul>
+                     ${ posts.map(post => 
+                         /*html*/
+                         `
+                         <li><a href="#/p/${post.id}">${post.title}</a></li>
+                         `
+                         ).join('\n ')
+                     }
+                 </ul>
+             </section>
+            `;
+         return view
+     },
+     after_render : async () => {
+ 
+     }
+ };
+
 let About = {
     render : async () => {
         let view = /*html*/
