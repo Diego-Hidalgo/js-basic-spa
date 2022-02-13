@@ -235,6 +235,58 @@ let Register = {
     }
 };
 
+let LogIn = {
+    render : async () => {
+        let view = /*html*/
+        `
+        <section class="section">
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" id="email_input" type="email" placeholder="Enter your Email">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control has-icons-left">
+                <input class="input" id="pass_input" type="password" placeholder="Enter a Password">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </p>
+        </div>
+        <div class="field">
+            <p class="control">
+                <button class="button is-primary" id="login_submit_btn">
+                <strong>Log In</strong>
+                </button>
+            </p>
+        </div>
+    </section>
+        `
+        return view;
+    },
+    after_render : async () => {
+        document.getElementById("login_submit_btn").addEventListener('click', () => {
+            let email = document.getElementById("email_input");
+            let password = document.getElementById("pass_input");
+            if(email.value == '' || password.value == '') {
+                alert(`The fields cannot be empty`);
+            } else {
+                logged = true;
+                let btn = document.getElementById('log_btn');
+                btn.innerHTML = '<a id="log_btn" class="button is-light"><strong>Log out</strong></a>'
+                alert(`User Successfully Logged`);
+                
+            }
+        });
+    }
+};
+
 const Utils = {
     parseRequestURL : () => {
         let url = location.hash.slice(1).toLowerCase() || '/';
