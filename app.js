@@ -1,3 +1,5 @@
+let logged = false;
+
 let Navbar = {
     render : async () => {
         let view = /*html*/
