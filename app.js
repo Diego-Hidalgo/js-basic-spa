@@ -171,7 +171,7 @@ let PostShow = {
             if(!logged) {
                 alert('You must be logged in order to perform this action');
             } else {
-
+                location.href = `/#/edit/` + post.id;
             }
         });
     }
@@ -267,7 +267,7 @@ let LogIn = {
             </p>
         </div>
     </section>
-        `
+        `;
         return view;
     },
     after_render : async () => {
@@ -281,8 +281,42 @@ let LogIn = {
                 let btn = document.getElementById('log_btn');
                 btn.innerHTML = '<a id="log_btn" class="button is-light"><strong>Log out</strong></a>'
                 alert(`User Successfully Logged`);
-                
+                location.href = '/#/';
             }
+        });
+    }
+};
+
+let Edit = {
+    render : async () => {
+        let request = Utils.parseRequestURL();
+        let post = await getPost(request.id);
+        let view = /*html*/
+        `
+        <section class="section">
+            <div class="field">
+                <input class="input" id="title_input" type="text" placeholder="Title" value="${post.title}">
+            </div>
+            <div class="field">
+                <textarea class="textarea" id="content_area" rows="10" cols="177">${post.content}</textarea>
+            </div>
+            <div class="field">
+                <input class="input" id="name_input" type="text" placeholder="Name" value="${post.name}">
+            </div>
+            <div class="field">
+                <p class="control">
+                    <button class="button is-primary" id="edit_submit_btn">
+                    Submit Changes
+                    </button>
+                </p>
+            </div>
+        </section>
+        `;
+        return view;
+    },
+    after_render : async() => {
+        document.getElementById('edit_submit_btn').addEventListener('click', () => {
+            alert("this button ain't working");
         });
     }
 };
@@ -310,6 +344,7 @@ const routes = {
     , '/p/:id'      : PostShow
     , '/register'   : Register
     , '/login'      : LogIn
+    , '/edit/:id'   : Edit
 };
 
 const router = async() => {
