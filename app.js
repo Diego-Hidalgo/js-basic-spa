@@ -1,3 +1,21 @@
+let Bottombar = {
+    render : async () => {
+        let view = /*html*/
+        `
+        <footer>
+            <div class="content has-text-centered">
+                <p>
+                    ~~~ DIEGO HIDALGO ~~~
+                </p>
+        </footer>
+        `;
+        return view;
+    },
+    after_render : async () => {
+
+    }
+};
+
 let Error404 = {
     render : async () => {
         let view = /*html*/
