@@ -1,3 +1,18 @@
+let Error404 = {
+    render : async () => {
+        let view = /*html*/
+        `
+            <section class="section">
+                <h1>ERROR 404</h1>
+            </section>
+        `
+        return view;
+    },
+    after_render : async () => {
+        
+    }
+};
+
 const Utils = {
     parseRequestURL : () => {
         let url = location.hash.slice(1).toLowerCase() || '/';
